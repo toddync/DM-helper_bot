@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "discord.js": "^14.14.1",
+    "dotenv": "^16.3.1"
+  },
+  "name": "ttrpg-management-discord-bot",
+  "description": "discord bot for ttrpg sessions management",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "toddync_137",
+  "license": "ISC"
+}
