@@ -5,6 +5,8 @@ const {TOKEN, CLIENT_ID} = process.env
 const fs = require('node:fs')
 const path = require('node:path')
 
+console.log("Collecting /commands to update...")
+
 const cPath = path.join(__dirname, 'commands')
 const cFiles = fs.readdirSync(cPath).filter(file => file.endsWith(".js"))
 

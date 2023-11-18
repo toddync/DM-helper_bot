@@ -23,7 +23,7 @@ for (const file of cFiles){
     }
 }
 
-console.log(client.commands)
+console.log(`\nTotal of ${cFiles.length} /commands available\n`)
 
 client.once(Events.ClientReady, c => {
 	console.log(`Ready! Logged in as ${c.user.tag}`)
@@ -38,7 +38,7 @@ client.on(Events.InteractionCreate, async e => {
     const command = e.client.commands.get(e.commandName)
     
     if(!command){
-        e.reply("command doesn't exist ")
+        e.reply("Command doesn't exist ")
         return
     }
     
