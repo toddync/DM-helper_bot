@@ -18,7 +18,7 @@ for (const file of cFiles){
     if('data' in command && 'execute' in command){
         commands.push(command.data.toJSON())
     } else {
-        console.log(`file ${fPath} has the wrong command structure`)
+        console.log(`file ${file} has the wrong command structure`)
     }
 }
 
