@@ -1,7 +1,7 @@
 const { Client, Events, GatewayIntentBits, Collection} = require('discord.js')
 
 const env = require("dotenv"); env.config();
-const {TOKEN, CLIENT_ID} = process.env
+const { TOKEN } = process.env
 
 const fs = require('node:fs')
 const path = require('node:path')
@@ -12,18 +12,21 @@ const cFiles = fs.readdirSync(cPath).filter(file => file.endsWith(".js"))
 const client = new Client({ intents: [GatewayIntentBits.Guilds] })
 client.commands = new Collection()
 
+leng = 0
+
 for (const file of cFiles){
     const fPath = path.join(cPath, file)
     const command = require(fPath)
     
     if('data' in command && 'execute' in command){
         client.commands.set(command.data.name, command)
+        leng++
     } else {
-        console.log(`file ${fPath} has the wrong command structure`)
+        console.log(`file ${file} has the wrong command structure`)
     }
 }
 
-console.log(`\nTotal of ${cFiles.length} /commands available\n`)
+console.log(`\nTotal of ${leng} /commands available\n`)
 
 client.once(Events.ClientReady, c => {
 	console.log(`Ready! Logged in as ${c.user.tag}`)
