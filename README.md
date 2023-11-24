@@ -22,6 +22,7 @@ I took inspiration from oter Discord TTRPG bots, such as Avrae
 - [ ] knowlege base
 	- [x] monsters knlowlege base
 	- [ ] items knowlege base
+	- [x] spells knowlege base
 	- [ ] races knowlege base
 	- [ ] rules knowlege base
 - [ ] character sheets
