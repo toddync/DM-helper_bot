@@ -44,12 +44,12 @@ module.exports={
         ctx.fillStyle = "black"
 
         for(let _ = 1; _ <= columns; _++){
-            x = _ * Math.floor(canvas.width / columns)
+            x = _ * 20
             ctx.fillRect(x, 0, 1, canvas.height)
         }
 
         for(let _ = 1; _ <= rows; _++){
-            x = _ * Math.floor(canvas.width / rows)
+            x = _ * 20
             ctx.fillRect(0, x, canvas.width, 1)
         }
 

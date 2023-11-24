@@ -27,6 +27,23 @@ module.exports = {
         }
 
         _ = await mysql.query(`
+            SELECT * FROM 
+                macros 
+            WHERE 
+                guild='${i.guild}' AND
+                user_id='${i.user}' AND
+                name='${i.macro}'
+            `)
+
+        if(_[0].length > 0){
+            await e.reply({
+                content:`you already have a macro named ${i.macro}`,
+                ephemeral: true
+            })
+            return
+        }
+
+        _ = await mysql.query(`
                 INSERT INTO
                     macros( guild, user_id, name, dice)
                 VALUES

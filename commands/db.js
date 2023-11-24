@@ -6,6 +6,7 @@ const pool = {
     database: process.env.DATABASE,
     user: process.env.DBUSER,
     password: process.env.PASSWORD,
+    port: process.env.PORT,
     enableKeepAlive: true
 }
 
