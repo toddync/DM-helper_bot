@@ -2,7 +2,7 @@
 
 DM helper is intended to be a  helpfull tool for DM's (hence the name) that wants to run a campaign on Discord, featuring some things that i found to be essential during any TTRPG game that I had runned, played or whatched online.
 
-I took inspiration from oter Discord TTRPG bots, such as Avrae
+I took inspiration from oter Discord TTRPG bots, such as Avrae, but the main feature of this bot is being open source, so anyone is able to add their own features.
 
 ### intended features:
 - [x] dice rolls
@@ -19,12 +19,10 @@ I took inspiration from oter Discord TTRPG bots, such as Avrae
 - [ ] innitiative tracking
 	- [ ] for players
 	- [ ] for monsters
-- [ ] knowlege base
+- [x] knowlege base
 	- [x] monsters knlowlege base
-	- [ ] items knowlege base
+	- [x] items knowlege base
 	- [x] spells knowlege base
-	- [ ] races knowlege base
-	- [ ] rules knowlege base
 - [ ] character sheets
 	- [ ] for players
 	- [ ] for NPCs
