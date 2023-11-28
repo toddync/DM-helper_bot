@@ -7,8 +7,8 @@ const {
 
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName("addmacro")
-        .setDescription('creates a reusable macro for rolling dices')
+        .setName("changemacro")
+        .setDescription('changes the dices of a macro')
         .addStringOption(option =>
             option
             .setName("name")
@@ -18,7 +18,7 @@ module.exports = {
         .addStringOption(option =>
             option
             .setName("dice")
-            .setDescription("the dices to roll")
+            .setDescription("the new dices")
             .setRequired(true)
         ),
     async execute(e) {
@@ -39,23 +39,25 @@ module.exports = {
                 name='${i.macro}'
             `)
 
-        if (_[0].length > 0) {
+        if (_[0].length == 0) {
             await e.reply({
-                content: `you already have a macro named ${i.macro}`,
+                content: `you don't have a macro named ${i.macro}`,
                 ephemeral: true
             })
             return
         }
 
         _ = await mysql.query(`
-                INSERT INTO
-                    macros( guild, user_id, name, dice)
-                VALUES
-                    ( '${i.guild}', '${i.user}', '${i.macro}', '${i.dice}')
+                UPDATE macros SET
+                    dice='${i.dice}'
+                WHERE
+                    guild='${i.guild}' AND
+                    user_id='${i.user}' AND
+                    name='${i.macro}'
             `)
 
         await e.reply({
-            content: `macro ${i.macro} added successfully!!`,
+            content: `macro ${i.macro} updated successfully!!`,
             ephemeral: true
         })
     }

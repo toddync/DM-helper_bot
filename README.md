@@ -6,12 +6,16 @@ I took inspiration from oter Discord TTRPG bots, such as Avrae, but the main fea
 
 ### intended features:
 - [x] dice rolls
-- [ ] macros
+- [x] macros
 	- [x] add macros
 	- [x] use macros
 	- [x] list macros
-	- [ ] update macros
-	- [ ] delete macros
+	- [x] update macros
+	- [x] delete macros
+- [x] knowlege base
+	- [x] monsters knlowlege base
+	- [x] items knowlege base
+	- [x] spells knowlege base
 - [ ] battle maps
 	- [x] create map grids
 	- [ ] add players/monsters to the grid
@@ -19,10 +23,6 @@ I took inspiration from oter Discord TTRPG bots, such as Avrae, but the main fea
 - [ ] innitiative tracking
 	- [ ] for players
 	- [ ] for monsters
-- [x] knowlege base
-	- [x] monsters knlowlege base
-	- [x] items knowlege base
-	- [x] spells knowlege base
 - [ ] character sheets
 	- [ ] for players
 	- [ ] for NPCs

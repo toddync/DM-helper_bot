@@ -7,18 +7,12 @@ const {
 
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName("addmacro")
-        .setDescription('creates a reusable macro for rolling dices')
+        .setName("deletemacro")
+        .setDescription('deletes a macro')
         .addStringOption(option =>
             option
             .setName("name")
             .setDescription('name of the macro')
-            .setRequired(true)
-        )
-        .addStringOption(option =>
-            option
-            .setName("dice")
-            .setDescription("the dices to roll")
             .setRequired(true)
         ),
     async execute(e) {
@@ -26,8 +20,7 @@ module.exports = {
         i = {
             guild: e.guildId,
             user: e.user.id,
-            macro: e.options.getString('name'),
-            dice: e.options.getString('dice')
+            macro: e.options.getString('name')
         }
 
         _ = await mysql.query(`
@@ -39,23 +32,25 @@ module.exports = {
                 name='${i.macro}'
             `)
 
-        if (_[0].length > 0) {
+        if (_[0].length == 0) {
             await e.reply({
-                content: `you already have a macro named ${i.macro}`,
+                content: `you don't have a macro named ${i.macro}`,
                 ephemeral: true
             })
             return
         }
 
         _ = await mysql.query(`
-                INSERT INTO
-                    macros( guild, user_id, name, dice)
-                VALUES
-                    ( '${i.guild}', '${i.user}', '${i.macro}', '${i.dice}')
+                DELETE FROM
+                    macros
+                WHERE
+                    guild='${i.guild}' AND
+                    user_id='${i.user}' AND
+                    name='${i.macro}'
             `)
 
         await e.reply({
-            content: `macro ${i.macro} added successfully!!`,
+            content: `macro ${i.macro} deleted successfully!!`,
             ephemeral: true
         })
     }
